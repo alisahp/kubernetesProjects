@@ -1,0 +1,200 @@
+  930  git pull
+  931  cd kubernetes6/
+  932  ls
+  933  git status
+  934  ls
+  935  clear
+  936  ls
+  937  vi mysql-rs-secret.yaml 
+  938  kubectl create secret generic mysql-pass --from-literal=password=MySQLp@ss
+  939  kubectl get deployments
+  940  kubectl logs mysql-deployment
+  941  kubectl get pods
+  942  kubectl delete pod redis-pod
+  943  kubectl logs mysql-deployment-7d455bf55b-5hvpv
+  944  git pull origin master
+  945  cd ..
+  946  git pull
+  947  cd kubernetes6/
+  948  ls
+  949  git pull
+  950  ls
+  951  clear
+  952  kubectl create -f kuard-sts.yaml
+  953  kubectl get sts
+  954  kubectl get pods
+  955  kubectl get pvc
+  956  kubectl get pv
+  957  git push origin master
+  958  cd ..
+  959  git pull origin master
+  960  cd kubernetes6/
+  961  ls
+  962  vim kuard-sts-svc.yaml
+  963  vim kuard-sts.yaml
+  964  kubectl get pods
+  965  clear
+  966  kubectl get pods
+  967  kubectl scale sts kuard-sts --replicas=5
+  968  kubectl get pods
+  969  vim kuard-sts.yaml
+  970  kubectl exec -it kuard-sts-0 /bin/bash
+  971  kubectl exec -it kuard-sts-0 /bin/bash/
+  972  kubectl exec -it kuard-sts-0
+  973  kubectl exec -it kuard-sts-0 ls
+  974  cd data
+  975  cd ..
+  976  kubectl exec -it kuard-sts-0 cd kuard
+  977  kubectl exec -it kuard-sts-0 kuard
+  978  clear
+  979  kubectl get pvc | grep kuard
+  980  kubectl get pods
+  981  kubectl get deployments
+  982  kubectl get sts -o wide
+  983  vim kuard-sts.yaml
+  984  git pull
+  985  cd kubernetes6/
+  986  ls
+  987  kubectl rollout
+  988  clear
+  989  kubectl rollout history sts kuard-sts
+  990  kubectl rollout history sts kuard-sts --revision=1
+  991  kubectl apply -f kuard-sts.yaml
+  992  kubectl get sts
+  993  kubectl get sts -o wide
+  994  kubectl rollout history sts
+  995  kubectl get pods
+  996  kubectl get pod kuard-sts-0 -o yaml
+  997  kubectl get pod kuard-sts-0 -o yaml | grep image
+  998  ku
+  999  gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123
+ 1000  kubectl delete all -all
+ 1001  gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123
+ 1002  kubectl delete all --all
+ 1003  gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123
+ 1004  kubectl run busybox-pod-test1 --generator=run-pod/v1 --image=busybox -l app=busybox-pod-test1,env=test -- sleep 10000
+ 1005  kubectl run busybox-pod-test2 --generator=run-pod/v1 --image=busybox -l app=busybox-pod-test2,env=test -- sleep 10000
+ 1006  kubectl run nginx-pod-test1 --generator=run-pod/v1 --image=nginx -l app=nginx-pod-test1,env=test --port=80
+ 1007  kubectl run nginx-pod-test2 --generator=run-pod/v1 --image=nginx -l app=nginx-pod-test2,env=test --port=80
+ 1008  kubectl run busybox-pod-test3 --generator=run-pod/v1 --image=busybox -l app=busybox-pod-test3,env=qa -- sleep 10000
+ 1009  kubectl run busybox-pod-test4 --generator=run-pod/v1 --image=busybox -l app=busybox-pod-test4,env=qa -- sleep 10000
+ 1010  kubectl run nginx-pod-test3 --generator=run-pod/v1 --image=nginx -l app=nginx-pod-test3,env=qa --port=80
+ 1011  kubectl run nginx-pod-test4 --generator=run-pod/v1 --image=nginx -l app=nginx-pod-test4,env=qa --port=80
+ 1012  kubectl get pods --all-namespaces | grep proxy
+ 1013  kubectl get pods --all-namespaces
+ 1014  clear
+ 1015  cd kubernetesP
+ 1016  ls
+ 1017  cd kubernetesProjects/
+ 1018  ls
+ 1019  cd kubernetes6/
+ 1020  ls
+ 1021  kubectl exec busybox-pod ping 8.8.8.8
+ 1022  kubectl get pods
+ 1023  kubectl exec busybox-pod-test1 ping 
+ 1024  kubectl exec busybox-pod-test1 ping 8.8.8.8
+ 1025  clera
+ 1026  clear
+ 1027  kubectl get pods --show-labels
+ 1028  git pull
+ 1029  ls
+ 1030  git push alisahp@github.com
+ 1031  git push https://github.com/alisahp/kubernetesProjects.git
+ 1032  git pull origin master
+ 1033  git push https://github.com/alisahp/kubernetesProjects.git
+ 1034  clear
+ 1035  kubectl create -f qa-allow-netpol.yaml 
+ 1036  vi qa-allow-netpol.yaml 
+ 1037  kubectl get pods --show-labels -o wide
+ 1038  kubectl exec busybox-pod-test1 --ping 8.8.8.8
+ 1039  kubectl exec busybox-pod-test1 -- ping 8.8.8.8
+ 1040  kubectl exec busybox-pod-test1 -- ping 10.16.0.74
+ 1041  kubectl get pods --show-labels -o wide
+ 1042  clear
+ 1043  kubectl get pods --show-labels -o wide
+ 1044  kubectl exec busybox-pod-test3 -- ping 10.16.0.69
+ 1045  gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123
+ 1046  clear
+ 1047  ls
+ 1048  git pull
+ 1049  kubectl get namespaces
+ 1050  kubectl create ns alisait
+ 1051  kubectl get namespaces
+ 1052  kubectl label ns alisait env=alisait
+ 1053  history
+ 1054  clear
+ 1055  kubectl get pods
+ 1056  kubectl run -generator=run-pod/v1 busybox-pod -n alisait --image=busybox -- sleep infinity
+ 1057  clear
+ 1058  kubectl get namespaces
+ 1059  kubectl label ns alisait env=alisait
+ 1060  ls
+ 1061  vi test-allow-80-netpol.yaml 
+ 1062  kubectl create -f  test-allow-80-netpol.yaml 
+ 1063  kubectl get pods -o wide --show-labels | grep qa
+ 1064  vi test-allow-80-netpol.yaml 
+ 1065  kubectl get netpol
+ 1066  kubectl get pods
+ 1067  kubectl get pods -o wide
+ 1068  kubectl exec busybox-pod-test3 -n alisait -- ping 10.16.0.69
+ 1069  kubectl exec busybox-pod-test2  -n alisait -- ping 10.16.0.69
+ 1070  kubectl exec nginx-pod-test2  -n alisait -- ping 10.16.0.69
+ 1071  kubectl exec nginx-pod-test2  -n alisait -- ping 10.16.0.71
+ 1072  kubectl exec nginx-pod-test2  -n -- ping 10.16.0.71
+ 1073  clear
+ 1074  kubectl get pods --show-labels -o wide
+ 1075  kubectl exec busybox-pod-test4  -n -- ping 10.16.0.74
+ 1076  kubectl exec busybox-pod-test4  -n -- ping 10.16.0.73
+ 1077  git pull
+ 1078  kubectl create -f test-ns-netpol.yaml 
+ 1079  kubectl exec busybox-pod-test4  -n -- ping 10.16.0.73
+ 1080  git pull
+ 1081  cp * ~/kubernetesProjects
+ 1082  cd /kubernetesProjects
+ 1083  cd ~/kubernetesProjects
+ 1084  ls
+ 1085  git push origin master
+ 1086  git add .
+ 1087  git status
+ 1088  git commit -a -m "network policy-ingress-egress-cidr-netpol policies added"
+ 1089  git status
+ 1090  git add -a .
+ 1091  git add -A .
+ 1092  ls
+ 1093  cd kubernetes6/
+ 1094  ls
+ 1095  cd ..
+ 1096  cd kubernetes2
+ 1097  cd kubernetes6/
+ 1098  ls
+ 1099  cp * ~/kubernetesProjects
+ 1100  cd ..
+ 1101  ls 
+ 1102  cd kubernetesP
+ 1103  cd kubernetesProjects/
+ 1104  ls
+ 1105  git add -A .
+ 1106  git push origin master
+ 1107  git commit -a -m "network policies added"
+ 1108  history
+ 1109  echo exec history > dec2019.txt
+ 1110  ls
+ 1111  cat dec2019.txt 
+ 1112  history
+ 1113  history|tail -n 50
+ 1114  history|tail -n 50 > history.txt
+ 1115  ls
+ 1116  cat history.txt 
+ 1117  history|head -n 200|tail -n 100
+ 1118  ls
+ 1119  cat history
+ 1120  cat history.txt
+ 1121  history|tail -n 300 > history.txt
+ 1122  cat history.txt
+ 1123  rm -f history
+ 1124  ls
+ 1125  history|tail -n 100 > history.txt
+ 1126  cat  history.txt
+ 1127  rm -f history
+ 1128  ls
+ 1129  history|tail -n 200 > history.txt
