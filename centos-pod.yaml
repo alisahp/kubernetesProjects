@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos-pod
+  labels:
+    run: centos-pod
+spec:
+  containers:
+  - image: centos
+    stdin: true
+    tty: true
+    name: centos

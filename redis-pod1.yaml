@@ -8,9 +8,10 @@ spec:
     image: redis
     volumeMounts: 
     - name: secret-creds
-      mountPath: "/app-creds"
+      mountPath: /app-creds
       readOnly: true
   volumes: 
   - name: secret-creds
     secret: 
-      secretName: SENSITIVE
+      secretName: secret-creds
+
