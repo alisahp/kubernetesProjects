@@ -1,0 +1,111 @@
+==================>  HOW TO SET SECURITY FOR PODS? <===============================
+
+IMPORTANT STEPS:
+
+kubectl create serviceaccount test
+kubectl get sa
+kubectl get secrets	every creating sa , you create secret at the same time
+kubectl get secret test-token
+
+kubectl exec pod busybox-pod -- ls /var/run/secrets/kubernetes.io/serviceaccount
+
+kubectl get roles
+
+kubectl get clusterroles
+
+
+
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user alisevhp@gmail.com
+
+	I gave myself cluster-admin privileges
+
+kubectl create role service-reader-role --verb=get --verb=list --resource=services -n default
+
+
+kubectl create rolebinding pv-reader-bind --clusterrole=pv-reader-clusterrole --serviceaccount=default:test
+
+	
+kubectl create clusterrole pv-reader-clusterrole --verb=get --verb=list --resource=persistentvolumes
+
+
+kubectl create rolebinding pv-reader-bind --clusterrole=pv-reader-clusterrole --serviceaccount=default:test
+
+
+
+
+kubectl delete clusterrole cluster-admin (very dangerous command, we most likely cannot  access cluster again)
+
+So, when deleting clusterrole be very careful !!!!!!!!
+
+
+
+  921  kubectl get roles
+  922  kubectl get clusterroles
+  923  kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user alisevhp@gmail.com
+  928  kubectl create role service-reader-role --verb=get --verb=list --resource=services -n default
+  929  kubectl get roles
+  930  kubectl get sa
+  931  kubectl create rolebinding service-reader-bind --role=service-reader-role
+  932  kubectl get rb
+  933  kubectl get rolebindings
+  934  kubectl get services -n alisait
+  935  kubectl get services -n default
+  936  kubectl get pvc -n default
+  937  cat default-psp.yaml 
+  938  ls
+  939  kubectl create -f default-psp.yaml 
+  940  kubectl get psp
+  942  kubectl create -f privileged-psp.yaml 
+  943  kubectl get psp
+  944  vim privileged-psp.yaml 
+  945  kubectl create clusterrole default-psp-clusterrole --verb=use
+  946  kubectl create clusterrole default-psp-clusterrole --verb=use  --resource=podsecuritypolicies --resource-name=default-psp
+  947  kubectl create clusterrole privileged-psp-clusterrole --verb=use  --resource=podsecuritypolicies --resource-name=privileged-psp
+  948  kubectl get clusterroles
+  949  kubectl get clusterroles | grep psp
+  950  kubectl create clusterrolebinding cluster-admin-privileged-psp-binding --clusterrole privileged-psp-clusterrole --user alisevhp@gmail.com
+  952  gcloud beta container clusters update [k8alisa]  --enable-pod-security-policy  --zone us-central1-a  --project analog-vault-251123
+  953  gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123
+  954  kubectl get secrets
+  955  gcloud beta container clusters update k8alisa  --enable-pod-security-policy  --zone us-central1-a  --project analog-vault-251123
+  956  cd kubernetes2/kubernetes6/
+  958  kubectl --user sam create -f centos-pod-privileged.yaml 
+  959  kubectl --user bob create -f centos-pod-privileged.yaml 
+  963  kubectl create sa sam
+  964  secret=$(kubectl get sa sam -o json | jq -r .secrets[].name)
+  965  user_token=$(kubectl get secret $secret -o json | jq -r ‘.data[“token”]’ | base64 --decode )
+  966  kubectl config set-credentials sam --token=$user_tokenkubectl create sa bob
+  967  secret=$(kubectl get sa bob -o json | jq -r .secrets[].name)
+  968  user_token=$(kubectl get secret $secret -o json | jq -r ‘.data[“token”]’ | base64 --decode )
+  969  kubectl config set-credentials bob --token=$user_token
+  970  9:06 PM
+  971  kubectl create clusterrolebinding psp-sam  --clusterrole=default-psp-clusterrole --serviceaccount=default:samkubectl create clusterrolebinding sam-admin  --clusterrole=admin --serviceaccount=default:sam
+  972  9:06 PM
+  973  kubectl create clusterrolebinding psp-bob  --clusterrole=privileged-psp-clusterrole --serviceaccount=default:bobkubectl create clusterrolebinding bob-admin  --clusterrole=admin --serviceaccount=default:bob
+  974  kubectl --user sam create -f centos-pod-privileged.yaml 
+  975  kubectl delete all --all
+  976  kubectl create sa sam
+  977  secret=$(kubectl get sa sam -o json | jq -r .secrets[].name)
+  978  user_token=$(kubectl get secret $secret -o json | jq -r ‘.data[“token”]’ | base64 --decode )
+  979  kubectl config set-credentials sam --token=$user_token
+  980  kubectl create sa bob
+  981  secret=$(kubectl get sa bob -o json | jq -r .secrets[].name)
+  982  user_token=$(kubectl get secret $secret -o json | jq -r ‘.data[“token”]’ | base64 --decode )
+  983  kubectl config set-credentials bob --token=$user_token
+  984  kubectl create clusterrolebinding psp-sam  --clusterrole=default-psp-clusterrole --serviceaccount=default:sam
+  985  kubectl create clusterrolebinding sam-admin  --clusterrole=admin --serviceaccount=default:sam
+  986  kubectl create clusterrolebinding psp-bob  --clusterrole=privileged-psp-clusterrole --serviceaccount=default:bob
+  987  kubectl create clusterrolebinding bob-admin  --clusterrole=admin --serviceaccount=default:bob
+  988  kubectl --user sam create -f centos-pod-privileged.yaml 
+  989  cat ~/.kube/config 
+  990  secret=$(kubectl get sa bob -o json | jq -r .secrets[].name)
+  991  cat $secret
+  992  echo $secret
+  993  user_token=$(kubectl get secret $secret -o json | jq -r ‘.data[“token”]’ | base64 --decode )
+  994  user_token=$(kubectl get secret $secret -o json | jq -r ‘.data["token"]’ | base64 --decode )
+  995  user_token=$(kubectl get secret $secret -o json | jq -r '.data["token"]' | base64 --decode )
+  996  echo $user_token 
+  997  kubectl config set-credentials bob --token=$user_token
+  998  less ~/.kube/config 
+  999  kubectl --user bob create -f centos-pod-privileged.yaml
+ 1000  kubectl get pods 
