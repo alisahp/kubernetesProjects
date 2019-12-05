@@ -6,7 +6,11 @@
   935  clear
   936  ls
   937  vi mysql-rs-secret.yaml 
+<<<<<<< HEAD
   938  kubectl create secret generic mysql-pass --from-literal=password=*****************
+=======
+  938  kubectl create secret generic mysql-pass --from-literal=password=*********
+>>>>>>> 5ad638a87ac494e2c11e21ca3ec08db7b4ba7120
   939  kubectl get deployments
   940  kubectl logs mysql-deployment
   941  kubectl get pods
