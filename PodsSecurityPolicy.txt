@@ -84,10 +84,10 @@ gcloud beta container clusters update k8******** \
   948  kubectl get clusterroles
   949  kubectl get clusterroles | grep psp
   950  kubectl create clusterrolebinding cluster-admin-privileged-psp-binding --clusterrole privileged-psp-clusterrole --user *******@gmail.com
-  952  gcloud beta container clusters update [k8alisa]  --enable-pod-security-policy  --zone us-central1-a  --project analog-vault-251123
-  953  gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123
+  952  gcloud beta container clusters update [k8alisa]  --enable-pod-security-policy  --zone us-central1-a  --project analog-vault-******3
+  953  gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-*******3gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-******3  
   954  kubectl get secrets
-  955  gcloud beta container clusters update k8alisa  --enable-pod-security-policy  --zone us-central1-a  --project analog-vault-251123
+  955  gcloud beta container clusters update k8alisa  --enable-pod-security-policy  --zone us-central1-a  --project analog-vault-*******3
   956  cd kubernetes2/kubernetes6/
   958  kubectl --user sam create -f centos-pod-privileged.yaml 
   959  kubectl --user bob create -f centos-pod-privileged.yaml 
