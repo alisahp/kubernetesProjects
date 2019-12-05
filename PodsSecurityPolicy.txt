@@ -35,7 +35,27 @@ kubectl create rolebinding pv-reader-bind --clusterrole=pv-reader-clusterrole --
 
 kubectl delete clusterrole cluster-admin (very dangerous command, we most likely cannot  access cluster again)
 
-So, when deleting clusterrole be very careful !!!!!!!!
+================> So, when deleting clusterrole be very careful !!!!!!!!
+
+
+
+kubectl create -f privileged-psp.yaml
+
+=====================> psp: Pod Security Policy
+
+
+kubectl get psp
+
+default-psp > ClusterRole > ClusterRoleBinding > Sam
+
+kubectl create clusterrolebinding cluster-admin-privileged-psp-binding \
+> --clusterrole privileged-psp-clusterrole --user alisevhp@gmail.com
+
+gcloud beta container clusters update k8******** \
+	 --enable-pod-security-policy \
+	 --zone us-central1-a \
+	 --project analog-vault-2***********
+	
 
 
 
