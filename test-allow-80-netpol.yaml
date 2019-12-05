@@ -10,7 +10,7 @@ spec:
   - from:
     - podSelector:
         matchLabels:
-          env: alisait
+          env: test
     ports:
     - protocol: TCP
       port: 80
