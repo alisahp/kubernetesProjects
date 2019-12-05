@@ -61,14 +61,14 @@ gcloud beta container clusters update k8******** \
 
   921  kubectl get roles
   922  kubectl get clusterroles
-  923  kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user alisevhp@gmail.com
+  923  kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user ********@gmail.com
   928  kubectl create role service-reader-role --verb=get --verb=list --resource=services -n default
   929  kubectl get roles
   930  kubectl get sa
   931  kubectl create rolebinding service-reader-bind --role=service-reader-role
   932  kubectl get rb
   933  kubectl get rolebindings
-  934  kubectl get services -n alisait
+  934  kubectl get services -n ali****
   935  kubectl get services -n default
   936  kubectl get pvc -n default
   937  cat default-psp.yaml 
@@ -83,7 +83,7 @@ gcloud beta container clusters update k8******** \
   947  kubectl create clusterrole privileged-psp-clusterrole --verb=use  --resource=podsecuritypolicies --resource-name=privileged-psp
   948  kubectl get clusterroles
   949  kubectl get clusterroles | grep psp
-  950  kubectl create clusterrolebinding cluster-admin-privileged-psp-binding --clusterrole privileged-psp-clusterrole --user alisevhp@gmail.com
+  950  kubectl create clusterrolebinding cluster-admin-privileged-psp-binding --clusterrole privileged-psp-clusterrole --user *******@gmail.com
   952  gcloud beta container clusters update [k8alisa]  --enable-pod-security-policy  --zone us-central1-a  --project analog-vault-251123
   953  gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123gcloud container clusters get-credentials k8alisa --zone us-central1-a --project analog-vault-251123
   954  kubectl get secrets
