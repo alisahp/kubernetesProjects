@@ -15,7 +15,7 @@ kubectl get clusterroles
 
 
 
-kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user alisevhp@gmail.com
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user *********@gmail.com
 
 	I gave myself cluster-admin privileges
 
@@ -49,7 +49,7 @@ kubectl get psp
 default-psp > ClusterRole > ClusterRoleBinding > Sam
 
 kubectl create clusterrolebinding cluster-admin-privileged-psp-binding \
-> --clusterrole privileged-psp-clusterrole --user alisevhp@gmail.com
+> --clusterrole privileged-psp-clusterrole --user **********@gmail.com
 
 gcloud beta container clusters update k8******** \
 	 --enable-pod-security-policy \
